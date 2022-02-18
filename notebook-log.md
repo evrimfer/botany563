@@ -1,6 +1,6 @@
 # BOTANY 563 - PROJECT
-# Phylogeny of Universal Small Ribosomal Proteins (uSSU-RP)
-# by Evrim Fer
+### Phylogeny of Universal Small Ribosomal Proteins (uSSU-RP)
+### by Evrim Fer
 
 # TO-DO
 - List universal small ribosomal subunit proteins (uSSU-RP)
