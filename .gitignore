@@ -1,0 +1,6 @@
+.DS_Store
+.Rhistory
+./results/alignment/allSSU_clustalw.fasta
+./results/alignment/allSSU_mafft.fasta
+./results/alignment/allSSU_muscle.fasta
+
