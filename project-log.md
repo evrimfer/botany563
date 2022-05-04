@@ -4,7 +4,7 @@
 ## **Data Collection**
 
 1. Universal ribosomal small subunit protein sequences were found from UniProt
->uS2: P0A7V0\
+>>uS2: P0A7V0\
 uS3: P0A7V3\
 uS4: P0A7V8\
 uS5: P0A7W1\
@@ -36,7 +36,7 @@ Alphaproteobacteria, Betaproteobacteria, Deltaproteobacteria, Epsilonproteobacte
 
 8. At the end, 962 small subunit protein sequences were collected in total.
 
->uS2: 69\
+>>uS2: 69\
 uS3: 66\
 uS4: 65\
 uS5: 67\
@@ -53,7 +53,7 @@ uS17: 63\
 uS19:64
 
 9. The 962 small subunit sequences were exported from Genious
-> ~/data/allSSU.fasta\
+>> ~/data/allSSU.fasta\
 ~/data/uS2/all_uS2.fasta\
 ~/data/uS3/all_uS3.fasta\
 ~/data/uS4/all_uS4.fasta\
@@ -71,7 +71,7 @@ uS19:64
 ~/data/uS19/all_uS19.fasta
 
 ## **Alignment**
-1. The alignment steps were performed on local computer (MacOS Monterey version 12.3.1)
+The alignment steps were performed on local computer (MacOS Monterey version 12.3.1)
 
 ### **MAFFT v7.490**
 1. Install MAFFT using conda
