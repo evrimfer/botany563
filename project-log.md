@@ -54,21 +54,21 @@ uS19:64
 
 9. The 962 small subunit sequences were exported from Genious
 >> ~/data/allSSU.fasta\
-~/data/uS2/all_uS2.fasta\
-~/data/uS3/all_uS3.fasta\
-~/data/uS4/all_uS4.fasta\
-~/data/uS5/all_uS5.fasta\
-~/data/uS7/all_uS7.fasta\
-~/data/uS8/all_uS8.fasta\
-~/data/uS9/all_uS9.fasta\
-~/data/uS10/all_uS10.fasta\
-~/data/uS11/all_uS11.fasta\
-~/data/uS12/all_uS12.fasta\
-~/data/uS13/all_uS13.fasta\
-~/data/uS14/all_uS14.fasta\
-~/data/uS15/all_uS15.fasta\
-~/data/uS17/all_uS17.fasta\
-~/data/uS19/all_uS19.fasta
+~/data/uS2.fasta\
+~/data/uS3.fasta\
+~/data/uS4.fasta\
+~/data/uS5.fasta\
+~/data/uS7.fasta\
+~/data/uS8.fasta\
+~/data/uS9.fasta\
+~/data/uS10.fasta\
+~/data/uS11.fasta\
+~/data/uS12.fasta\
+~/data/uS13.fasta\
+~/data/uS14.fasta\
+~/data/uS15.fasta\
+~/data/uS17.fasta\
+~/data/uS19.fasta
 
 ## **Alignment**
 The alignment steps were performed on local computer (MacOS Monterey version 12.3.1)
