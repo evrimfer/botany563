@@ -1,90 +1,116 @@
-BOTANY 563 - PROJECT
-Phylogeny of Universal Small Ribosomal Proteins (uSSU-RP)
-by evrim fer
-Data Collection
-Universal ribosomal small subunit protein sequences were found from UniProt
-uS2: P0A7V0
-uS3: P0A7V3
-uS4: P0A7V8
-uS5: P0A7W1
-uS7: P02359
-uS8: P0A7W7
-uS9: P0A7X3
-uS10: P0A7R5
-uS11: P0A7R9
-uS12: P0A7S3
-uS13: P0A7S9
-uS14: P0AG59
-uS15: P0ADZ4
-uS17: P0AG63
-uS19: P0A7U3
+## **BOTANY 563 - PROJECT**
+## **Phylogeny of Universal Small Ribosomal Proteins (uSSU-RP)**
 
-Using these accession numbers, homohomologous protein sequences were searched in BLASTp (web-service), non-redundant (nr) sequence database. With default paremeters (evalue threshold=0.05, BLOSUM62 matrix)
+## **Data Collection**
 
-First, the homologous proteins of uS2 (ribosomal small subunit S2 protein) searhed in BLASTp for different bacterial phyla, archaea and eukaryote;
+1. Universal ribosomal small subunit protein sequences were found from UniProt
+>uS2: P0A7V0\
+uS3: P0A7V3\
+uS4: P0A7V8\
+uS5: P0A7W1\
+uS7: P02359\
+uS8: P0A7W7\
+uS9: P0A7X3\
+uS10: P0A7R5\
+uS11: P0A7R9\
+uS12: P0A7S3\
+uS13: P0A7S9\
+uS14: P0AG59\
+uS15: P0ADZ4\
+uS17: P0AG63\
+uS19: P0A7U3\
+
+2. Using these accession numbers, homohomologous protein sequences were searched in BLASTp (web-service), non-redundant (nr) sequence database.\
+With default paremeters (evalue threshold=0.05, BLOSUM62 matrix)
+
+3. First, the homologous proteins of uS2 (ribosomal small subunit S2 protein) searhed in BLASTp for different bacterial phyla, archaea and eukaryote;
 Alphaproteobacteria, Betaproteobacteria, Deltaproteobacteria, Epsilonproteobacteria, Gammaproteobacteria, Cyanobacteria, Deinococcus-Thermus, Firmicutes, Archaea, Eukaryote. The target phyla groups were specifically defined in BLASTp "Organism" section.
 
-The found uS2 sequences were imported to Geneious (version 2022.1.1) software.
+4. The found uS2 sequences were imported to Geneious (version 2022.1.1) software.
 
-For each phyla, at least two sequences were kept. Very long and very short or partial sequences were removed.
+5. For each phyla, at least two sequences were kept. Very long and very short or partial sequences were removed.
 
-To have a consistent data (i.e. different proteins from same organisms),the remaining species/organisms were specifically searched for other small ribosomal proteins (uS3 to uS19) in BLAST by defining the species in "Organism" section.
+6. To have a consistent data (i.e. different proteins from same organisms),the remaining species/organisms were specifically searched for other small ribosomal proteins (uS3 to uS19) in BLAST by defining the species in "Organism" section.
 
-The found sequences were added to Geneious. However, not all small subunit proteins were able to be found for all species (i.e. missing data for some proteins)
+7. The found sequences were added to Geneious. However, not all small subunit proteins were able to be found for all species (i.e. missing data for some proteins)
 
-At the end, 962 small subunit protein sequences were collected in total.
+8. At the end, 962 small subunit protein sequences were collected in total.
 
-uS2: 69
-uS3: 66
-uS4: 65
-uS5: 67
-uS7: 65
-uS8: 65
-uS9: 63
-uS10: 65
-uS11: 66
-uS12: 66
-uS13: 64
-uS14: 61
-uS15: 53
-uS17: 63
+>uS2: 69\
+uS3: 66\
+uS4: 65\
+uS5: 67\
+uS7: 65\
+uS8: 65\
+uS9: 63\
+uS10: 65\
+uS11: 66\
+uS12: 66\
+uS13: 64\
+uS14: 61\
+uS15: 53\
+uS17: 63\
 uS19:64
 
-The 962 small subunit sequences were exported from Genious
-~/data/allSSU.fasta
-~/data/uS2/all_uS2.fasta
-~/data/uS3/all_uS3.fasta
-~/data/uS4/all_uS4.fasta
-~/data/uS5/all_uS5.fasta
-~/data/uS7/all_uS7.fasta
-~/data/uS8/all_uS8.fasta
-~/data/uS9/all_uS9.fasta
-~/data/uS10/all_uS10.fasta
-~/data/uS11/all_uS11.fasta
-~/data/uS12/all_uS12.fasta
-~/data/uS13/all_uS13.fasta
-~/data/uS14/all_uS14.fasta
-~/data/uS15/all_uS15.fasta
-~/data/uS17/all_uS17.fasta
+9. The 962 small subunit sequences were exported from Genious
+> ~/data/allSSU.fasta\
+~/data/uS2/all_uS2.fasta\
+~/data/uS3/all_uS3.fasta\
+~/data/uS4/all_uS4.fasta\
+~/data/uS5/all_uS5.fasta\
+~/data/uS7/all_uS7.fasta\
+~/data/uS8/all_uS8.fasta\
+~/data/uS9/all_uS9.fasta\
+~/data/uS10/all_uS10.fasta\
+~/data/uS11/all_uS11.fasta\
+~/data/uS12/all_uS12.fasta\
+~/data/uS13/all_uS13.fasta\
+~/data/uS14/all_uS14.fasta\
+~/data/uS15/all_uS15.fasta\
+~/data/uS17/all_uS17.fasta\
 ~/data/uS19/all_uS19.fasta
 
-Alignment
-The alignment steps were performed on local computer (MacOS Monterey version 12.3.1)
+## **Alignment**
+1. The alignment steps were performed on local computer (MacOS Monterey version 12.3.1)
 
-MAFFT v7.490
-Install MAFFT using conda
+### **MAFFT v7.490**
+1. Install MAFFT using conda
+```(bash)
 conda install -c bioconda mafft
-Align all SSU proteins using input order (--inputorder) in fasta and auto detect the alignment algorithm (--auto)
+```
+2. Align all SSU proteins using input order (--inputorder) in fasta and auto detect the alignment algorithm (--auto)
+
+```(bash)
 /usr/local/bin/mafft --auto --inputorder allSSU.fasta > ../results/alignments/allSSU_mafft.fasta
-MUSCLE v.5.1.osx64
-Install MUSCLE using conda (MUSCLE version 5.1.ox64)
+```
+### **MUSCLE v.5.1.osx64**
+1. Install MUSCLE using conda (MUSCLE version 5.1.ox64)
+```(bash)
 conda install -c bioconda muscle
-Align all SSU proteins using MUSCLE with default parameters for iteration, CPU or cores. It used 8 cores, running 8 threads
+```
+2. Align all SSU proteins using MUSCLE with default parameters for iteration, CPU or cores. It used 8 cores, running 8 threads
+```(bash)
 muscle -align allSSU.fasta -output ../results/alignments/allSSU_muscle.fasta
-ClustalW v2.1
-Install ClustalW (version 2.1) using conda
+```
+
+### **ClustalW v2.1**
+1. Install ClustalW (version 2.1) using conda
+```(bash)
 conda install -c bioconda clustalw
-Align all SSU proteins using ClustalW the options in the following order: Choose 1 - Sequence Input From Disc Enter the nam of the sequence file: allSSU.fasta Choose 2 - Multiple Alignments Choose 6 - Multiple Alignment Parameter from "MULTIPLE ALIGNMENT MENU" Choose 5 - Protein weight matrix from "MULTIPLE ALIGNMENT PARAMETER MENU" Choose 1 - BLOSUM from "PROTEIN WEIGHT MATRIX MENU" Choose 9 - Output format options from "MULTIPLE ALIGNMENT MENU" Choose F - Turn on FASTA format Choose 1 - Turn off Clustal format Choose 9 - Change Toogle output order from ALIGNED to INPUT FILE Choose 1 - Do complete multiple alignment now Slow/Accurate from "MULTIPLE ALIGNMENT MENU"
+```
+2. Align all SSU proteins using ClustalW the options in the following order:\
+Choose 1 - Sequence Input From Disc Enter the name of the sequence file: allSSU.fasta\
+Choose 2 - Multiple Alignments\
+Choose 6 - Multiple Alignment Parameter from "MULTIPLE ALIGNMENT MENU"\
+Choose 5 - Protein weight matrix from "MULTIPLE ALIGNMENT PARAMETER MENU"\
+Choose 1 - BLOSUM from "PROTEIN WEIGHT MATRIX MENU"\
+Choose 9 - Output format options from "MULTIPLE ALIGNMENT MENU"\
+Choose F - Turn on FASTA format\
+Choose 1 - Turn off Clustal format\
+Choose 9 - Change Toogle output order from ALIGNED to INPUT FILE\
+Choose 1 - Do complete multiple alignment now Slow/Accurate from "MULTIPLE ALIGNMENT MENU"
+
+```(bash)
 clustalw
 
 **************************************************************
@@ -374,16 +400,22 @@ firstres = 1 lastres = 131619
 FASTA file created!
 
 Fasta-Alignment file created    [allSSU_clustalw.fasta]
+```
 
-Phylogeny Reconstruction
+## **Phylogeny Reconstruction**
 The phylogeny reconstructions were performed on CHTC.
 
-Move alignment files to CHTC home directory
+1. Move alignment files to CHTC home directory
+``` (bash)
 scp ~/results/alignments/allSSU_mafft.fasta fer@submit1.chtc.wisc.edu:/home/fer/
 scp ~/results/alignments/allSSU_muscle.fasta fer@submit1.chtc.wisc.edu:/home/fer/
 scp ~/results/alignments/allSSU_clustalw.fasta fer@submit1.chtc.wisc.edu:/home/fer/
-**IQTREE v1.6.12 **
-Prepare IQTREE execution script for MAFFT aligned SSU sequences: allSSU_mafft_iqtree.sh
+```
+
+### **IQTREE v1.6.12**
+1. Prepare IQTREE execution script for MAFFT aligned SSU sequences: allSSU_mafft_iqtree.sh
+
+```(bash)
 #!/bin/bash
 # allSSU_mafft_iqtree.sh
 # IQ-TREE phylogeny reconstruction - SSU
@@ -406,7 +438,10 @@ Prepare IQTREE execution script for MAFFT aligned SSU sequences: allSSU_mafft_iq
 #
 # keep this job running for a few minutes so you'll see it in the queue:
 #sleep 180
-Prepare IQTREE job script for MAFFT aligned SSU sequences: allSSU_mafft_iqtree.sub
+```
+2. Prepare IQTREE job script for MAFFT aligned SSU sequences: allSSU_mafft_iqtree.sub
+
+```(bash)
 # allSSU_mafft_iqtree.sub
 # Submission file for IQ-TREE phylogeny reconstruction for SSU job
 #
@@ -443,38 +478,61 @@ request_disk = 50GB
 #
 # Run one instance of job
 queue
-Prepare IQTREE execution script for ClustalW and MUSCLE aligned SSU sequences by changing the execution command of IQTREE: allSSU_clustalw_iqtree.sh, allSSU_muscle_iqtree.sh
+```
+
+3. Prepare IQTREE execution script for ClustalW and MUSCLE aligned SSU sequences by changing the execution command of IQTREE: allSSU_clustalw_iqtree.sh, allSSU_muscle_iqtree.sh
+
+```(bash)
 ./iqtree/build/iqtree -s allSSU_clustalw.fasta -m MFP -msub nuclear -wsr -st AA -alrt 1000 -bb 1000 -bnni -nt 12 
 
 ./iqtree/build/iqtree -s allSSU_muscle.fasta -m MFP -msub nuclear -wsr -st AA -alrt 1000 -bb 1000 -bnni -nt 12 
-Prepare IQTREE job script for ClustalW and MUSCLE aligned SSU sequences by changing the names in the "executable" and "transfer_input_files" lines: allSSU_clustalw_iqtree.sub, allSSU_muscle_iqtree.sub
+```
+
+4. Prepare IQTREE job script for ClustalW and MUSCLE aligned SSU sequences by changing the names in the "executable" and "transfer_input_files" lines: allSSU_clustalw_iqtree.sub, allSSU_muscle_iqtree.sub
+
+```(bash)
 executable = allSSU_clustalw_iqtree.sh
 transfer_input_files = allSSU_clustalw.fasta, /home/fer/
 
 executable = allSSU_muscle_iqtree.sh
 transfer_input_files = allSSU_muscle.fasta, /home/fer/
-Run the IQTREE jobs on CHTC
+```
+
+5. Run the IQTREE jobs on CHTC
+```(bash)
 condor_submit allSSU_mafft_iqtree.sub
 condor_submit allSSU_clustalw_iqtree.sub
 condor_submit allSSU_muscle_iqtree.sub
-Transfer all the output files from CHTC to local
-scp fer@submit1.chtc.wisc.edu:/home/fer/allSSU_mafft.fasta.* ~/results/phylogeny/allSSU_IQTREE/
-scp fer@submit1.chtc.wisc.edu:/home/fer/allSSU_clustalw.fasta.* ~/results/phylogeny/allSSU_IQTREE/
-scp fer@submit1.chtc.wisc.edu:/home/fer/allSSU_muscle.fasta.* ~/results/phylogeny/allSSU_IQTREE/
-The output tree file is unrooted. To root the tree, I used minimum acnestor deviation (MAD) (version 2.2) software. Downloaded MAD software from https://www.mikrobio.uni-kiel.de/de/ag-dagan/ressourcen and unzipped.
+```
+
+6. Transfer all the output files from CHTC to local
+
+```(bash)
+scp fer@submit1.chtc.wisc.edu:/home/fer/allSSU_mafft.fasta.* ./results/phylogeny/allSSU_IQTREE/
+scp fer@submit1.chtc.wisc.edu:/home/fer/allSSU_clustalw.fasta.* ./results/phylogeny/allSSU_IQTREE/
+scp fer@submit1.chtc.wisc.edu:/home/fer/allSSU_muscle.fasta.* ./results/phylogeny/allSSU_IQTREE/
+```
+7. The output tree file is unrooted. To root the tree, I used minimum acnestor deviation (MAD) (version 2.2) software. Downloaded MAD software from https://www.mikrobio.uni-kiel.de/de/ag-dagan/ressourcen and unzipped.
+
+```(bash)
 unzip mad2.2.zip 
 Run MAD with IQTREE -.treefile. It will give an output like -.treefile.rooted
 ./mad.py ~/results/phylogeny/allSSU_IQTREE/allSSU_mafft.fasta.treefile
 ./mad.py ~/results/phylogeny/allSSU_IQTREE/allSSU_clustalw.fasta.treefile
 ./mad.py ~/results/phylogeny/allSSU_IQTREE/allSSU_muscle.fasta.treefile
-Visualize the rooted treefiles using FigTree software. Order node under "Trees" option. Collapse branches based on ribosomal protein name and annotate the collapsed groups.
+```
+
+8. Visualize the rooted treefiles using FigTree software. Order node under "Trees" option. Collapse branches based on ribosomal protein name and annotate the collapsed groups.
+
 All SSU - MAFFT Aligned - IQTREE
 
 
 
-MrBayes v.3.2.7a
-Install MrBayes from GitHub
+### **MrBayes v.3.2.7a**
+1. Install MrBayes from GitHub
 git clone --depth=1 --branch=develop https://github.com/NBISweden/MrBayes.git
+
+```(bash)
 cd MrBayes
 ./configure --enable-doc=no   
 make -j2
@@ -482,12 +540,15 @@ make -j2
 #to run
 cd src
 ./mb
-Since the MrBayes needs input file in NEXUS format, I exported the clustalw, mafft and muscle FASTA alignments in NEXUS format using Geneious. The exported alignment files in NEXUS format were saved under MrBayes/src folder to run the program.
+```
 
-The extraction added quotes at the beginning of some species names. The quotes were found and eplace with no-space.
+2. Since the MrBayes needs input file in NEXUS format, I exported the clustalw, mafft and muscle FASTA alignments in NEXUS format using Geneious. The exported alignment files in NEXUS format were saved under MrBayes/src folder to run the program.
 
-Run MrBayes for clustalw
+3. The extraction added quotes at the beginning of some species names. The quotes were found and eplace with no-space.
 
+4. Run MrBayes for clustalw
+
+```(bash)
 cd MrBayes/src
 ./mb
 
@@ -540,6 +601,7 @@ MrBayes > execute allSSU_clustalw.nex
     Setting model defaults
     Seed (for generating default start values) = 2086384576
 
+```
 
 
 
