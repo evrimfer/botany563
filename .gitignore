@@ -1,6 +1,9 @@
 .DS_Store
 .Rhistory
+./figures/allSSU-CLUSTALW-FASTTREE.png
+./figures/allSSU-CLUSTALW-IQTREE.png
 ./results/alignment/allSSU_clustalw.fasta
 ./results/alignment/allSSU_mafft.fasta
 ./results/alignment/allSSU_muscle.fasta
-
+./results/alignment/allSSU_concatenated.fasta
+./results/phylogeny/allSSU_clustalw_fasttree.treefile.rooted

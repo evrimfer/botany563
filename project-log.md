@@ -20,7 +20,7 @@ uS15: P0ADZ4\
 uS17: P0AG63\
 uS19: P0A7U3\
 
-2. Using these accession numbers, homohomologous protein sequences were searched in BLASTp (web-service), non-redundant (nr) sequence database.\
+2. Using these accession numbers, homologous protein sequences were searched in BLASTp (web-service), non-redundant (nr) sequence database.\
 With default paremeters (evalue threshold=0.05, BLOSUM62 matrix)
 
 3. First, the homologous proteins of uS2 (ribosomal small subunit S2 protein) searhed in BLASTp for different bacterial phyla, archaea and eukaryote;
@@ -508,101 +508,181 @@ condor_submit allSSU_muscle_iqtree.sub
 6. Transfer all the output files from CHTC to local
 
 ```(bash)
-scp fer@submit1.chtc.wisc.edu:/home/fer/allSSU_mafft.fasta.* ./results/phylogeny/allSSU_IQTREE/
-scp fer@submit1.chtc.wisc.edu:/home/fer/allSSU_clustalw.fasta.* ./results/phylogeny/allSSU_IQTREE/
-scp fer@submit1.chtc.wisc.edu:/home/fer/allSSU_muscle.fasta.* ./results/phylogeny/allSSU_IQTREE/
+scp fer@submit1.chtc.wisc.edu:/home/fer/allSSU_mafft.fasta.* ./results/phylogeny/
+scp fer@submit1.chtc.wisc.edu:/home/fer/allSSU_clustalw.fasta.* ./results/phylogeny/
+scp fer@submit1.chtc.wisc.edu:/home/fer/allSSU_muscle.fasta.* ./results/phylogeny/
 ```
-7. The output tree file is unrooted. To root the tree, I used minimum acnestor deviation (MAD) (version 2.2) software. Downloaded MAD software from https://www.mikrobio.uni-kiel.de/de/ag-dagan/ressourcen and unzipped.
+7. The output tree file is unrooted. To root the tree, I used minimum acnestor deviation (MAD) (version 2.2) software since there is not outgroup in the dataset. Downloaded MAD software from https://www.mikrobio.uni-kiel.de/de/ag-dagan/ressourcen and unzipped.
 
 ```(bash)
 unzip mad2.2.zip 
-Run MAD with IQTREE -.treefile. It will give an output like -.treefile.rooted
-./mad.py ~/results/phylogeny/allSSU_IQTREE/allSSU_mafft.fasta.treefile
-./mad.py ~/results/phylogeny/allSSU_IQTREE/allSSU_clustalw.fasta.treefile
-./mad.py ~/results/phylogeny/allSSU_IQTREE/allSSU_muscle.fasta.treefile
+Run MAD with IQTREE -.treefile. It will give an output like -.treefile.rooted 
+./mad.py ~/results/phylogeny/allSSU_mafft.fasta.treefile
+./mad.py ~/results/phylogeny/allSSU_clustalw.fasta.treefile
+./mad.py ~/results/phylogeny/allSSU_muscle.fasta.treefile
 ```
 
 8. Visualize the rooted treefiles using FigTree software. Order node under "Trees" option. Collapse branches based on ribosomal protein name and annotate the collapsed groups.
 
-All SSU - MAFFT Aligned - IQTREE
-
-
-
-### **MrBayes v.3.2.7a**
-1. Install MrBayes from GitHub
-git clone --depth=1 --branch=develop https://github.com/NBISweden/MrBayes.git
-
+### **FastTree**
+1. Install FastTree (v2.1.11) using conda
 ```(bash)
-cd MrBayes
-./configure --enable-doc=no   
-make -j2
-
-#to run
-cd src
-./mb
+conda install -c bioconda fasttree
 ```
 
-2. Since the MrBayes needs input file in NEXUS format, I exported the clustalw, mafft and muscle FASTA alignments in NEXUS format using Geneious. The exported alignment files in NEXUS format were saved under MrBayes/src folder to run the program.
+2. Run FastTree for allSSU alignments (aligned by ClustalW, MAFFT and MUSCLE).\
+- For ClustalW and MAFFT alignments -lg option was used. -lg option indicates Le-Gascuel 2008 model (amino acid alignments only). I used -lg because IQTREE ModelFinder found the best models as LG+G4 and LG+R8 for each alignments respectively.\
+- For MUSCLE, I used -wag because IQTREE ModelFinder found the best models as WAG+R7 for MUSCLE alignment. 
+```(bash)
+FastTree -lg  allSSU_clustalw.fasta > ../phylogeny/allSSU_clustalw_fasttree.treefile
+FastTree -lg  allSSU_mafft.fasta > ../phylogeny/allSSU_mafft_fasttree.treefile
+FastTree -wag  allSSU_muscle.fasta > ../phylogeny/allSSU_muscle_fasttree.treefile
+```
+3. The unrooted trees were rooted using minimal ancestor deviation (MAD) method since there is not outgroup in the dataset.
+```(bash)
+./mad.py ../..botany563/results/phylogeny/allSSU_clustalw_fasttree.treefile
+./mad.py ../..botany563/results/phylogeny/allSSU_mafft_fasttree.treefile
+./mad.py ../..botany563/results/phylogeny/allSSU_muscle_fasttree.treefile
+```
+4. The trees were visualized in FigTree.
 
-3. The extraction added quotes at the beginning of some species names. The quotes were found and eplace with no-space.
+## **Species Tree**
 
-4. Run MrBayes for clustalw
+1. The common species in all small subunit (SSU) protein sequence datasets were found in Geneious. In total 38 species remained. 
+
+2. The remained species in each SSU protein were extracted from Geneoius and aligned using MAFFT v7.490.
 
 ```(bash)
-cd MrBayes/src
-./mb
-
-                            MrBayes 3.2.7a arm
-
-                    (Bayesian Analysis of Phylogeny)
-
-            Distributed under the GNU General Public License
-
-
-             Type "help" or "help <command>" for information
-                   on the commands that are available.
-
-                 Type "about" for authorship and general
-                     information about the program.
-
-MrBayes > lset nst=6 rates=invgamma
-
- Nst =1 unchanged because dataType is not DNA or RNA
- Setting Rates to Invgamma
- Successfully set likelihood model parameters
-
-MrBayes > execute allSSU_clustalw.nex
-
- Executing file "allSSU_clustalw.nex"
- UNIX line termination
- Longest line length = 139
- Parsing file
- Expecting NEXUS formatted file
- Reading taxa block
-    Allocated taxon set
-    Defining new set of 962 taxa
- Exiting taxa block
- Reading characters block
-    Allocated matrix
-    Defining new character matrix with 131619 characters
-    Data is Protein
-    Missing data coded as ?
-    Gaps coded as -
-    Data matrix is interleaved
-    Taxon   1 -> uS2_Alphaproteobacteria_Enhydrobacter_aerosaccus_SK60
-
-    ...
-    ...
-
-    Taxon 960 -> uS19_Gammaproteobacteria_Escherichia_coli
-    Taxon 961 -> uS19_Gammaproteobacteria_Salmonella_enterica
-    Taxon 962 -> uS19_Gammaproteobacteria_Vibrio_alginolyticus Successfully read matrix
-    Setting default partition (does not divide up characters)
-    Setting model defaults
-    Seed (for generating default start values) = 2086384576
-
+/usr/local/bin/mafft --auto --inputorder uS2_common.fasta > ../results/alignments/uS2_common_mafft.fasta
+/usr/local/bin/mafft --auto --inputorder uS3_common.fasta > ../results/alignments/uS3_common_mafft.fasta
+/usr/local/bin/mafft --auto --inputorder uS4_common.fasta > ../results/alignments/uS4_common_mafft.fasta
+/usr/local/bin/mafft --auto --inputorder uS5_common.fasta > ../results/alignments/uS5_common_mafft.fasta
+/usr/local/bin/mafft --auto --inputorder uS7_common.fasta > ../results/alignments/uS7_common_mafft.fasta
+/usr/local/bin/mafft --auto --inputorder uS8_common.fasta > ../results/alignments/uS8_common_mafft.fasta
+/usr/local/bin/mafft --auto --inputorder uS9_common.fasta > ../results/alignments/uS9_common_mafft.fasta
+/usr/local/bin/mafft --auto --inputorder uS10_common.fasta > ../results/alignments/uS10_common_mafft.fasta
+/usr/local/bin/mafft --auto --inputorder uS11_common.fasta > ../results/alignments/uS11_common_mafft.fasta
+/usr/local/bin/mafft --auto --inputorder uS12_common.fasta > ../results/alignments/uS12_common_mafft.fasta
+/usr/local/bin/mafft --auto --inputorder uS13_common.fasta > ../results/alignments/uS13_common_mafft.fasta
+/usr/local/bin/mafft --auto --inputorder uS14_common.fasta > ../results/alignments/uS14_common_mafft.fasta
+/usr/local/bin/mafft --auto --inputorder uS15_common.fasta > ../results/alignments/uS15_common_mafft.fasta
+/usr/local/bin/mafft --auto --inputorder uS17_common.fasta > ../results/alignments/uS17_common_mafft.fasta
+/usr/local/bin/mafft --auto --inputorder uS19_common.fasta > ../results/alignments/uS19_common_mafft.fasta
 ```
 
+### **By Concatenation**
+1. All alignments of individual SSU were imported to Geneoius. Here, the alignments are concatenated next to each other based on species names. The output file exracted from Geneious as "~/results/alignments/allSSU_concatenated.fasta"
 
 
-*Coalescence
+2. The alignment file was transferred to CHTC. 
+```(bash)
+scp allSSU_concatenated.fasta fer@submit1.chtc.wisc.edu:/home/fer/
+```
+
+3. The species tree using concatenated alignments was reconstructred with IQTREE v1.6.12 using execution (allSSU_concatenated_iqtree.sh) and job submission files (allSSU_concatenated_iqtree.sub). 
+
+```(bash)
+# -s <filename>: alignment filename
+# -st AA: specify the data is amino acid
+# -msub : specify only running model selection
+# -nt: optimize number of threads
+# -m MFP: perform Model Finder Plus to find model and continue to use that model
+# -alrt 1000: calculate likelihood ratio test for 1000 times 
+# -bb 1000: calculate UFBoot scores for 1000 times
+# -bbni: reduce bias of the model selection
+ 
+./iqtree/build/iqtree -s allSSU_concatenated.fasta -m MFP -msub nuclear -wsr -st AA -alrt 1000 -bb 1000 -bnni -nt 12 
+```
+
+4. Trasfer output treefile from CHTC to local computer.
+```(bash) 
+scp fer@submit1.chtc.wisc.edu:/home/fer/allSSU_concatenated.fasta.treefile ./results/phylogeny/
+```
+
+5. The treefile is unrooted. To root the tree minimal ancestor deviation tool was used. 
+```(bash)
+./mad.py ~/results/phylogeny/allSSU_concatenated.fasta.treefile
+```
+
+6. Open both rooted and unrooted tree in FigTree. By looking at the rooted tree determine the branch in unrooted tree and manually root it. I did this because I wanted to show branch support values which are saved in the unrooted treefile and lost in rooted treefile. 
+Checked the box for branch labels and select 'labels' for branch description. The branch support values (SH-aLRT and UFBoot) are shown on each branched. Save the image of the tree.
+
+### **By Coalescence**
+1. All alignments of individual SSU were transferred to CHTC.
+```(bash)
+scp uS2_common_mafft.fasta fer@submit1.chtc.wisc.edu:/home/fer/
+...
+scp uS19_common_mafft.fasta fer@submit1.chtc.wisc.edu:/home/fer/
+```
+
+2. For each SSU protein a maximum likelihood tree constructed.
+
+```(bash)
+# -s <filename>: alignment filename
+# -st AA: specify the data is amino acid
+# -msub : specify only running model selection
+# -nt: optimize number of threads
+# -m MFP: perform Model Finder Plus to find model and continue to use that model
+# -alrt 1000: calculate likelihood ratio test for 1000 times 
+# -bb 1000: calculate UFBoot scores for 1000 times
+# -bbni: reduce bias of the model selection
+ 
+./iqtree/build/iqtree -s uS2_common_mafft.fasta -m MFP -msub nuclear -wsr -st AA -alrt 1000 -bb 1000 -bnni -nt 12 
+...
+./iqtree/build/iqtree -s uS19_common_mafft.fasta -m MFP -msub nuclear -wsr -st AA -alrt 1000 -bb 1000 -bnni -nt 12 
+```
+
+3. Trasfer output treefile from CHTC to local computer.
+```(bash) 
+scp fer@submit1.chtc.wisc.edu:/home/fer/uS2_common_mafft.fasta.treefile ./results/phylogeny/
+...
+scp fer@submit1.chtc.wisc.edu:/home/fer/uS19_common_mafft.fasta.treefile ./results/phylogeny/
+```
+
+4. Concatenate treefiles.
+```(bash)
+cat uS2_common_mafft.fasta.treefile uS3_common_mafft.fasta.treefile ...uS19_common_mafft.fasta.treefile > allSSU_input.tre
+```
+
+5. Download ASTRAL v5.7.1 from https://github.com/smirarab/ASTRAL/releases/tag/v5.7.1 to local computer. 
+
+6. Untar ASTRAL folder and unzip Astral.5.7.1.zip inside the folder.
+```(bash)
+tar –cvzf ASTRAL-5.7.1.tar.gz
+unzip Astral.5.7.1.zip
+```
+
+7. Go under the Astral folder and run the following command to reconstruct species tree by coalescence method.
+```(bash)
+cd Astral
+java -jar astral.5.7.1.jar -i ~/results/phylogeny/allSSU_input.tre -o ~/results/phylogeny/allSSU_output.tre
+```
+
+8. Visualize species tree in FigTree.
+
+## GitHub help
+
+1. Clone your repository
+```
+git clone https://github.com/evrimfer/botany563.git
+```
+2. Add all the files in the folder to transfer
+```
+git add .
+```
+3. Write commit message
+```
+git commit -m “meaningful comment”
+```
+4. Push the added files to github
+```
+git push
+```
+5. Check the status of added/deleted/modified files
+```
+git status
+```
+6. If you add “.gitignore after git add . “ Command do this
+```
+git rm -r --cached . 
+```

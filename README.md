@@ -7,11 +7,12 @@
     Contains data for BOTANY 563 project
 ### figures
     Contains figures for BOTANY 563 project
-### phylogenetic-class
-    Cloned from Claudia Solis-Lemus github
 ### results
     Contains results for BOTANY 563 project
+    alignments
+    phylogeny
 ### scripts
     Contains scripts for BOTANY 563 project
+    CHTC execution and job submission scripts
 ### softwares
-    Contains softwares used during BOTANY 563
+    Contains softwares used for project
